@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "noEmit": true
+  },
+  "extends": "./src/typescript/tsconfig.base.json",
+  "include": ["src/__tests__/fixtures/typescript/**/*.ts", "src/__tests__/integration/**/*.ts"]
+}

@@ -1,0 +1,49 @@
+{
+  "ref": "refs/heads/main",
+  "before": "0000000000000000000000000000000000000000",
+  "after": "1234567890abcdef1234567890abcdef12345678",
+  "repository": {
+    "name": "style-guide",
+    "full_name": "trafficbyintent/style-guide",
+    "owner": {
+      "login": "trafficbyintent",
+      "type": "Organization"
+    },
+    "html_url": "https://github.com/trafficbyintent/style-guide",
+    "default_branch": "main"
+  },
+  "pusher": {
+    "name": "test-user",
+    "email": "test@example.com"
+  },
+  "sender": {
+    "login": "test-user",
+    "type": "User"
+  },
+  "created": false,
+  "deleted": false,
+  "forced": false,
+  "base_ref": null,
+  "compare": "https://github.com/trafficbyintent/style-guide/compare/0000000000000000000000000000000000000000...1234567890abcdef1234567890abcdef12345678",
+  "commits": [
+    {
+      "id": "1234567890abcdef1234567890abcdef12345678",
+      "message": "chore: bump version to 1.1.3",
+      "modified": ["package.json", "package-lock.json"],
+      "timestamp": "2024-01-01T00:00:00Z",
+      "author": {
+        "name": "Test User",
+        "email": "test@example.com"
+      }
+    }
+  ],
+  "head_commit": {
+    "id": "1234567890abcdef1234567890abcdef12345678",
+    "message": "test: testing commit",
+    "timestamp": "2024-01-01T00:00:00Z",
+    "author": {
+      "name": "Test User",
+      "email": "test@example.com"
+    }
+  }
+}

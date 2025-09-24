@@ -1,0 +1,21 @@
+{
+  "inputs": {
+    "version": "1.0.0"
+  },
+  "ref": "refs/heads/main",
+  "repository": {
+    "name": "style-guide",
+    "full_name": "trafficbyintent/style-guide",
+    "owner": {
+      "login": "trafficbyintent",
+      "type": "Organization"
+    },
+    "html_url": "https://github.com/trafficbyintent/style-guide",
+    "default_branch": "main"
+  },
+  "sender": {
+    "login": "test-user",
+    "type": "User"
+  },
+  "workflow": ".github/workflows/release.yml"
+}

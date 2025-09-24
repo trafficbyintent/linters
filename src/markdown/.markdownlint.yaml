@@ -1,0 +1,204 @@
+# TXI Markdown Linting Configuration
+# Based on the TXI Markdown Style Guide
+#
+# This configuration enforces the Markdown standards defined in
+# docs/standards/style-guides/MARKDOWN_STYLE_GUIDE.md
+
+# Default state for all rules
+default: true
+
+# Line length - 100 characters per .markdownlint.json config
+MD013:
+  line_length: 100
+  heading_line_length: 100
+  code_blocks: false
+  tables: false
+  headings: true
+  headers: true
+  strict: false
+  stern: false
+
+# Heading style - ATX style only
+MD003:
+  style: 'atx'
+
+# Unordered list style - dashes (matching existing documentation)
+MD004:
+  style: 'dash'
+
+# List indentation - 2 spaces
+MD007:
+  indent: 2
+  start_indented: false
+
+# Trailing spaces
+MD009:
+  br_spaces: 2
+  list_item_empty_lines: false
+  strict: true
+
+# Hard tabs - not allowed
+MD010: true
+
+# Multiple consecutive blank lines
+MD012:
+  maximum: 1
+
+# Dollar signs before commands
+MD014: true
+
+# No space after hash on atx style heading
+MD018: true
+
+# Multiple spaces after hash on atx style heading
+MD019: true
+
+# Closed atx style headings - not used
+MD020: false
+
+# Multiple spaces inside hashes on closed atx style heading
+MD021: false
+
+# Headings should be surrounded by blank lines
+MD022:
+  lines_above: 1
+  lines_below: 1
+
+# Headings must start at the beginning of the line
+MD023: true
+
+# Multiple headings with the same content
+MD024:
+  siblings_only: true
+  allow_different_nesting: false
+
+# Single title/top-level heading
+MD025:
+  level: 1
+  front_matter_title: "^\\s*title\\s*[:=]"
+
+# Trailing punctuation in heading
+MD026:
+  punctuation: '.,;:!。，；：！'
+
+# Multiple spaces after blockquote symbol
+MD027: true
+
+# Blank line inside blockquote
+MD028: false
+
+# Ordered list item prefix
+MD029:
+  style: 'ordered'
+
+# Spaces after list markers
+MD030:
+  ul_single: 1
+  ol_single: 1
+  ul_multi: 1
+  ol_multi: 1
+
+# Fenced code blocks surrounded by blank lines
+MD031:
+  list_items: true
+
+# Lists surrounded by blank lines
+MD032: true
+
+# Inline HTML
+MD033:
+  allowed_elements:
+    - br
+    - sup
+    - sub
+    - kbd
+    - mark
+    - abbr
+    - details
+    - summary
+
+# Bare URL
+MD034: true
+
+# Horizontal rule style
+MD035:
+  style: '---'
+
+# Emphasis used instead of a heading
+# Disabled: Agent docs use emphasis for critical warnings intentionally
+MD036: false
+
+# Spaces inside emphasis markers
+MD037: true
+
+# Spaces inside code span elements
+MD038: true
+
+# Spaces inside link text
+MD039: true
+
+# Fenced code blocks should have a language specified
+MD040: true
+
+# First line in file should be a top level heading
+MD041:
+  level: 1
+  front_matter_title: "^\\s*title\\s*[:=]"
+
+# No empty links
+MD042: true
+
+# Required heading structure - disabled for flexibility
+MD043: false
+
+# Proper names should have the correct capitalization
+# Disabled: Too many false positives with package names and code references
+MD044: false
+
+# Images should have alternate text (alt text)
+MD045: true
+
+# Code block style - fenced
+MD046:
+  style: 'fenced'
+
+# Files should end with a single newline character
+MD047: true
+
+# Code fence style - backticks
+MD048:
+  style: 'backtick'
+
+# Emphasis style - disabled since Prettier handles formatting
+# and may prefer underscores in certain contexts
+MD049: false
+
+# Strong style - asterisks
+MD050:
+  style: 'asterisk'
+
+# Link fragments should be valid
+MD051: true
+
+# Reference links and images should use a label that is defined
+MD052: true
+
+# Link and image reference definitions should be needed
+MD053:
+  ignored_definitions:
+    - '//'
+
+# Custom rules for TXI standards
+
+# File naming enforcement (not enforced by markdownlint, but documenting the pattern)
+# Files should use UPPER_SNAKE_CASE: ^[A-Z][A-Z0-9_]*\.md$
+
+# Table formatting
+MD055:
+  style: 'pipe'
+
+# Table pipe alignment
+MD056: true
+
+# Blank lines around tables
+MD058: true

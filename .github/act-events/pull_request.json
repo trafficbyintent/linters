@@ -1,0 +1,58 @@
+{
+  "action": "opened",
+  "number": 42,
+  "pull_request": {
+    "id": 1,
+    "number": 42,
+    "state": "open",
+    "title": "feat: add new linting rules",
+    "body": "This PR adds new linting rules for better code quality",
+    "user": {
+      "login": "test-user",
+      "type": "User"
+    },
+    "head": {
+      "label": "test-user:feature-branch",
+      "ref": "feature-branch",
+      "sha": "1234567890abcdef1234567890abcdef12345678",
+      "repo": {
+        "name": "style-guide",
+        "full_name": "test-user/style-guide",
+        "owner": {
+          "login": "test-user",
+          "type": "User"
+        }
+      }
+    },
+    "base": {
+      "label": "trafficbyintent:main",
+      "ref": "main",
+      "sha": "abcdef1234567890abcdef1234567890abcdef12",
+      "repo": {
+        "name": "style-guide",
+        "full_name": "trafficbyintent/style-guide",
+        "owner": {
+          "login": "trafficbyintent",
+          "type": "Organization"
+        }
+      }
+    },
+    "merged": false,
+    "mergeable": true,
+    "draft": false
+  },
+  "repository": {
+    "name": "style-guide",
+    "full_name": "trafficbyintent/style-guide",
+    "owner": {
+      "login": "trafficbyintent",
+      "type": "Organization"
+    },
+    "html_url": "https://github.com/trafficbyintent/style-guide",
+    "default_branch": "main"
+  },
+  "sender": {
+    "login": "test-user",
+    "type": "User"
+  }
+}

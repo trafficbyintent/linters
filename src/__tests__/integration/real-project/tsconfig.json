@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./",
+    "types": ["jest"]
+  },
+  "exclude": ["node_modules", "dist"],
+  "extends": "../src/typescript/tsconfig.base.json",
+  "include": ["./**/*.ts"]
+}

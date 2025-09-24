@@ -1,0 +1,36 @@
+# Source files
+test/
+__tests__/
+*.test.js
+*.spec.js
+
+# Config files
+.gitignore
+.npmignore
+vitest.config.mjs
+
+# Development files
+.DS_Store
+*.log
+node_modules/
+
+# Documentation (only exclude agent-specific docs)
+docs/agent/
+examples/
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+
+# IDE
+.vscode/
+.idea/
+
+# Git
+.git/
+.gitattributes
+
+# Other
+tmp/
+temp/
+coverage/

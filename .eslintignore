@@ -1,0 +1,13 @@
+# Test fixtures are meant to fail linting as they test linting rules
+__tests__/fixtures/
+
+# Node modules
+node_modules/
+
+# Package lock file (auto-generated)
+package-lock.json
+
+# Build outputs
+dist/
+build/
+coverage/
