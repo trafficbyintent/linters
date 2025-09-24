@@ -1,0 +1,27 @@
+{
+  "ref": "refs/tags/v1.0.0",
+  "before": "0000000000000000000000000000000000000000",
+  "after": "1234567890abcdef1234567890abcdef12345678",
+  "created": true,
+  "deleted": false,
+  "forced": false,
+  "base_ref": "refs/heads/main",
+  "repository": {
+    "name": "style-guide",
+    "full_name": "trafficbyintent/style-guide",
+    "owner": {
+      "login": "trafficbyintent",
+      "type": "Organization"
+    },
+    "html_url": "https://github.com/trafficbyintent/style-guide",
+    "default_branch": "main"
+  },
+  "pusher": {
+    "name": "test-user",
+    "email": "test@example.com"
+  },
+  "sender": {
+    "login": "test-user",
+    "type": "User"
+  }
+}

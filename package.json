@@ -1,0 +1,184 @@
+{
+  "name": "@trafficbyintent/linters",
+  "version": "1.2.0",
+  "description": "Traffic by Intent (TXI) comprehensive linter configurations for ESLint, Prettier, TypeScript, and more",
+  "keywords": [
+    "eslint",
+    "prettier",
+    "typescript",
+    "style-guide",
+    "txi",
+    "trafficbyintent"
+  ],
+  "license": "SEE LICENSE IN LICENSE",
+  "author": "Traffic by Intent",
+  "contributors": [
+    "Bradford Melluish"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trafficbyintent/linters.git"
+  },
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./typescript": "./src/typescript/index.js",
+    "./typescript/eslint": "./src/typescript/eslint.config.js",
+    "./typescript/prettier": "./src/typescript/prettier.config.js",
+    "./typescript/tsconfig": "./src/typescript/tsconfig.base.json",
+    "./typescript/custom-rules": "./src/typescript/custom-rules/index.js",
+    "./javascript": "./src/javascript/index.js",
+    "./javascript/eslint": "./src/javascript/eslint.config.js",
+    "./javascript/prettier": "./src/javascript/prettier.config.js",
+    "./javascript/eslint-plugin": "./src/javascript/eslint-plugin-txi/index.js",
+    "./css": "./src/css/index.js",
+    "./css/stylelint": "./src/css/stylelint.config.js",
+    "./react": "./src/react/index.js",
+    "./react/eslint": "./src/react/eslint.config.js",
+    "./angular": "./src/angular/index.js",
+    "./angular/eslint": "./src/angular/eslint.config.js",
+    "./markdown": "./src/markdown/index.js",
+    "./markdown/markdownlint": "./src/markdown/.markdownlint.yaml",
+    "./markdown/markdownlint-yaml": "./src/markdown/.markdownlint.yaml",
+    "./json": "./src/json/index.js",
+    "./json/eslint": "./src/json/eslint.config.js",
+    "./json/schemas": "./src/json/schemas.js",
+    "./html": "./src/html/index.js",
+    "./html/htmlhint": "./src/html/htmlhint.config.js",
+    "./html/htmlhintrc": "./src/html/.htmlhintrc",
+    "./terraform": "./src/terraform/index.js",
+    "./terraform/tflint": "./src/terraform/tflint.config.js",
+    "./terraform/tflint-hcl": "./src/terraform/.tflint.hcl"
+  },
+  "files": [
+    "src",
+    "!src/__tests__",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "audit": "npm audit",
+    "audit:fix": "npm audit fix",
+    "format": "prettier --write '**/*.{js,ts,tsx,json,md,yml,yaml}'",
+    "format:check": "prettier --check '**/*.{js,ts,tsx,json,md,yml,yaml}'",
+    "lint": "run-p lint:js lint:ts lint:json lint:md lint:css lint:html lint:prettier",
+    "lint:angular": "eslint '**/*.{ts,html}' --config src/angular/eslint.config.js",
+    "lint:css": "stylelint '**/*.{css,scss}' --config src/css/stylelint.config.js --allow-empty-input --ignore-path .gitignore",
+    "lint:fix": "npm run lint:js -- --fix && npm run lint:ts -- --fix && npm run lint:json -- --fix && npm run format",
+    "lint:html": "htmlhint '**/*.html' --config src/html/.htmlhintrc --ignore 'node_modules/**' --ignore 'coverage/**' || echo 'No HTML files to lint'",
+    "lint:js": "eslint 'src/**/*.js' --config src/javascript/eslint.config.js --ignore-pattern 'src/__tests__/**'",
+    "lint:json": "eslint '**/*.json' --config src/json/eslint.config.js",
+    "lint:md": "markdownlint '**/*.md' --config src/markdown/.markdownlint.yaml --ignore node_modules",
+    "lint:prettier": "prettier --check '**/*.{js,ts,tsx,json,md,yml,yaml}'",
+    "lint:react": "eslint '**/*.{jsx,tsx}' --config src/react/eslint.config.js",
+    "lint:ts": "eslint 'src/**/*.ts' --config src/typescript/eslint.config.js --parser @typescript-eslint/parser --ignore-pattern 'src/__tests__/**' 2>/dev/null || echo 'No TypeScript files to lint'",
+    "postversion": "git push && git push --tags",
+    "prepublishOnly": "npm test",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:integration": "vitest run __tests__/integration",
+    "test:lint": "npm run lint",
+    "test:unit": "vitest run __tests__/unit",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "version": "npm test && git add -A",
+    "version:local": "npm test && git add -A && echo 'Version updated locally. Run \"git push && git push --tags\" when ready.'"
+  },
+  "dependencies": {
+    "@angular-eslint/eslint-plugin": "^20.1.1",
+    "@angular-eslint/eslint-plugin-template": "^20.1.1",
+    "@angular-eslint/template-parser": "^20.1.1",
+    "@stylistic/eslint-plugin-ts": "^2.13.0",
+    "@typescript-eslint/eslint-plugin": "^8.39.0",
+    "@typescript-eslint/parser": "^8.39.0",
+    "eslint": ">=8.0.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-jsonc": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.33.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-rxjs": "^5.0.3",
+    "htmlhint": "^1.1.0",
+    "jsonc-eslint-parser": "^2.4.0",
+    "markdownlint-cli": "^0.45.0",
+    "prettier": ">=3.0.0",
+    "stylelint": "^16.0.0",
+    "stylelint-config-recommended": "^17.0.0",
+    "stylelint-config-standard": "^39.0.0",
+    "stylelint-order": "^7.0.0",
+    "stylelint-scss": "^6.12.1",
+    "stylelint-selector-bem-pattern": "^4.0.1",
+    "typescript": ">=4.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@vitest/coverage-v8": "^3.2.4",
+    "npm-run-all": "^4.1.5",
+    "vitest": "^3.2.4"
+  },
+  "peerDependencies": {
+    "eslint": ">=8.0.0",
+    "prettier": ">=3.0.0",
+    "typescript": ">=4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
+  },
+  "txi-protocols": {
+    "pr-description-file": ".PULL_REQUEST_DESCRIPTION.md",
+    "pr-description-in-gitignore": true,
+    "version-update-method": "manual-edit-only",
+    "forbidden-npm-commands": [
+      "version",
+      "publish"
+    ],
+    "forbidden-git-commands": [
+      "commit",
+      "push",
+      "tag",
+      "merge"
+    ],
+    "test-coverage-required": 100,
+    "test-dynamic-data-allowed": false,
+    "commit-permission": "explicit-only",
+    "documentation-files": {
+      "allowed": [
+        "README.md",
+        "CHANGELOG.md",
+        "CLAUDE.md",
+        "TODOS.md",
+        "TODOS_USER.md"
+      ],
+      "forbidden": [
+        "MIGRATION.md",
+        "UPGRADE.md",
+        "ANALYSIS.md",
+        "DEPENDENCY_MIGRATION.md",
+        "BREAKING_CHANGES.md",
+        "PR_DESCRIPTION.md"
+      ]
+    },
+    "comment-style": {
+      "documentation": "/* multi-line */",
+      "todos": "// single-line"
+    },
+    "protocols-documentation": "docs/agent/AGENT_PROTOCOLS.md",
+    "bootstrap-required": true,
+    "bootstrap-files": [
+      "docs/agent/AGENT_PREFLIGHT.md",
+      "docs/agent/AGENT_QUICKREF.md",
+      "docs/agent/AGENT_DIRECTIVES.md"
+    ]
+  },
+  "engines": {
+    "node": ">=20.9.0",
+    "npm": ">=10.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "restricted"
+  }
+}
