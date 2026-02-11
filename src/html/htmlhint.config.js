@@ -138,32 +138,22 @@ module.exports = {
    * ========================================
    */
 
-  /* Semantic HTML5 elements */
-  'custom-rules': {
-    /* Prefer semantic elements */
-    'prefer-semantic-elements': {
-      header: 'Use <header> instead of <div class="header">',
-      nav: 'Use <nav> instead of <div class="navigation">',
-      main: 'Use <main> instead of <div class="main">',
-      article: 'Use <article> for self-contained content',
-      section: 'Use <section> for thematic grouping',
-      aside: 'Use <aside> for complementary content',
-      footer: 'Use <footer> instead of <div class="footer">',
-    },
-
-    /* Accessibility requirements */
-    accessibility: {
-      'lang-attribute': 'html element must have lang attribute',
-      'form-labels': 'All form inputs must have associated labels',
-      'heading-order': 'Headings must be in hierarchical order',
-      'landmark-roles': 'Use ARIA landmark roles appropriately',
-    },
-
-    /* Meta tags */
-    'required-meta': {
-      charset: '<meta charset="utf-8"> required',
-      viewport: '<meta name="viewport"> required for responsive design',
-      description: '<meta name="description"> recommended for SEO',
-    },
-  },
+  /*
+   * Aspirational custom rules (not supported by HTMLHint natively):
+   *
+   * prefer-semantic-elements:
+   *   Use <header>, <nav>, <main>, <article>, <section>, <aside>, <footer>
+   *   instead of generic <div> elements with class names.
+   *
+   * accessibility:
+   *   - html element must have lang attribute
+   *   - All form inputs must have associated labels
+   *   - Headings must be in hierarchical order
+   *   - Use ARIA landmark roles appropriately
+   *
+   * required-meta:
+   *   - <meta charset="utf-8"> required
+   *   - <meta name="viewport"> required for responsive design
+   *   - <meta name="description"> recommended for SEO
+   */
 };

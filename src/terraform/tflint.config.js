@@ -149,7 +149,7 @@ module.exports = {
   /* Custom validation rules */
   customRules: {
     /* Resource-specific rules */
-    // eslint-disable-next-line camelcase
+    /* eslint-disable-next-line camelcase */
     aws_instance: {
       requiredTags: ['Name', 'Environment'],
       validInstanceTypes: [
@@ -166,13 +166,13 @@ module.exports = {
       ],
     },
 
-    // eslint-disable-next-line camelcase
+    /* eslint-disable-next-line camelcase */
     aws_s3_bucket: {
       requiredArguments: ['versioning', 'server_side_encryption_configuration'],
       requiredTags: ['Name', 'Environment', 'DataClassification'],
     },
 
-    // eslint-disable-next-line camelcase
+    /* eslint-disable-next-line camelcase */
     aws_db_instance: {
       requiredArguments: ['backup_retention_period', 'backup_window', 'maintenance_window'],
       minimumBackupRetention: 7,

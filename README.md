@@ -3,7 +3,7 @@
 > Traffic By Intent's comprehensive linter configurations for ESLint, Prettier, TypeScript, and more
 
 ![npm (scoped)](https://img.shields.io/npm/v/@trafficbyintent/linters)
-![License](https://img.shields.io/badge/license-Proprietary-red.svg)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 This package provides ESLint, Prettier, TypeScript, and other linter configurations to enforce
 consistent code style across all TXI projects.
@@ -38,7 +38,7 @@ module.exports = require('@trafficbyintent/linters/typescript/eslint');
 ```json
 // tsconfig.json
 {
-  "extends": "@trafficbyintent/linters/typescript/tsconfig"
+    "extends": "@trafficbyintent/linters/typescript/tsconfig"
 }
 ```
 
@@ -102,12 +102,12 @@ Add these scripts to your `package.json`:
 
 ```json
 {
-  "scripts": {
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "format": "prettier --write '**/*.{js,ts,tsx,json,md}'",
-    "format:check": "prettier --check '**/*.{js,ts,tsx,json,md}'"
-  }
+    "scripts": {
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix",
+        "format": "prettier --write '**/*.{js,ts,tsx,json,md}'",
+        "format:check": "prettier --check '**/*.{js,ts,tsx,json,md}'"
+    }
 }
 ```
 
@@ -165,7 +165,7 @@ Create `.htmlhintrc`:
 
 ```json
 {
-  "extends": ["@trafficbyintent/linters/html/htmlhint"]
+    "extends": ["@trafficbyintent/linters/html/htmlhint"]
 }
 ```
 
@@ -178,10 +178,10 @@ Create `.htmlhintrc`:
 const txi = require('@trafficbyintent/linters/javascript/eslint');
 
 module.exports = [
-  ...txi,
-  {
-    ignores: ['dist/', 'build/', 'coverage/'],
-  },
+    ...txi,
+    {
+        ignores: ['dist/', 'build/', 'coverage/'],
+    },
 ];
 ```
 
@@ -192,15 +192,15 @@ module.exports = [
 const txi = require('@trafficbyintent/linters/typescript/eslint');
 
 module.exports = [
-  ...txi,
-  {
-    files: ['**/*.ts'],
-    languageOptions: {
-      parserOptions: {
-        project: './tsconfig.json',
-      },
+    ...txi,
+    {
+        files: ['**/*.ts'],
+        languageOptions: {
+            parserOptions: {
+                project: './tsconfig.json',
+            },
+        },
     },
-  },
 ];
 ```
 
@@ -239,11 +239,11 @@ Add to `.vscode/settings.json`:
 
 ```json
 {
-  "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
-  "eslint.validate": ["javascript", "typescript", "javascriptreact", "typescriptreact"]
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "eslint.validate": ["javascript", "typescript", "javascriptreact", "typescriptreact"]
 }
 ```
 
@@ -289,11 +289,11 @@ Verify `tsconfig.json` extends the base config:
 
 ```json
 {
-  "extends": "@trafficbyintent/linters/typescript/tsconfig",
-  "compilerOptions": {
-    "rootDir": "./src",
-    "outDir": "./dist"
-  }
+    "extends": "@trafficbyintent/linters/typescript/tsconfig",
+    "compilerOptions": {
+        "rootDir": "./src",
+        "outDir": "./dist"
+    }
 }
 ```
 
@@ -308,8 +308,9 @@ npm run lint:fix && npm run format
 
 ## Support
 
-For issues or questions, please contact the TXI development team or file an issue in the repository.
+For issues or questions, please
+[open an issue](https://github.com/trafficbyintent/linters/issues).
 
 ## License
 
-Proprietary - Traffic by Intent. See LICENSE file for details.
+MIT - see [LICENSE](LICENSE) for details.

@@ -236,13 +236,13 @@ module.exports = {
 
     /*
      * ========================================
-     * Line Length - 80 characters
+     * Line Length - 100 characters (project-wide standard)
      * ========================================
      */
     'max-line-length': [
-      80,
+      100,
       {
-        ignore: ['comments', 'non-comments'],
+        ignore: ['comments'],
         ignorePattern: ['/https?://[0-9,a-z]*.*/i', '/^@import\\s+/'],
       },
     ],

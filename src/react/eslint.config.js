@@ -6,9 +6,6 @@
  * docs/standards/style-guides/REACT_STYLE_GUIDE.md
  */
 
-const _baseJavaScriptConfig = require('../javascript/eslint.config');
-const _baseTypeScriptConfig = require('../typescript/eslint.config');
-
 module.exports = {
   /* Extend from base configs */
   extends: [

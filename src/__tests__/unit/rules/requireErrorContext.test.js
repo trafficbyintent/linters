@@ -23,6 +23,13 @@ describe('require-error-context', () => {
       {
         code: `throw new CustomError('Something went wrong');`,
       },
+      // Valid: Contextualized messages that previously false-positived via endsWith
+      {
+        code: `throw new Error('Record with id not found');`,
+      },
+      {
+        code: `throw new Error('Validation for input failed');`,
+      },
       // Valid: Re-throwing errors
       {
         code: `throw error;`,

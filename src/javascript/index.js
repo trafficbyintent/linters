@@ -19,7 +19,7 @@ module.exports = {
    * @param {boolean} [options.allowConsoleError=false] - Allow console.error statements
    * @returns {Object} Extended ESLint configuration
    * @example
-   * const config = require('@trafficbyintent/style-guide/javascript').getESLintConfig({
+   * const config = require('@trafficbyintent/linters/javascript').getESLintConfig({
    *   allowConsoleWarn: true,
    *   allowConsoleError: true
    * });

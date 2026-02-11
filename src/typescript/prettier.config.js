@@ -15,7 +15,7 @@ module.exports = {
   tabWidth: 2,
   useTabs: false,
 
-  /* Line length - 100 characters */
+  /* Line length - 100 characters (project-wide standard) */
   printWidth: 100,
 
   /* Spacing */
@@ -48,6 +48,8 @@ module.exports = {
       files: '*.md',
       options: {
         proseWrap: 'always',
+        /* 4-space indent for nested lists (matches markdownlint MD007) */
+        tabWidth: 4,
       },
     },
     {

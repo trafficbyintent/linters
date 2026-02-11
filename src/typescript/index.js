@@ -26,7 +26,7 @@ module.exports = {
    * @param {boolean} [options.allowConsoleError=false] - Allow console.error statements
    * @returns {Object} Extended ESLint configuration with TXI custom rules
    * @example
-   * const config = require('@trafficbyintent/style-guide/typescript').getESLintConfig({
+   * const config = require('@trafficbyintent/linters/typescript').getESLintConfig({
    *   allowConsoleWarn: true,
    *   allowConsoleError: true
    * });

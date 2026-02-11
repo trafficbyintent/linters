@@ -10,7 +10,7 @@ const _baseTypeScriptConfig = require('../typescript/eslint.config');
 
 module.exports = {
   root: true,
-  ignorePatterns: ['projects/**/*', 'dist/**/*', 'node_modules/**/*', '*.spec.ts'],
+  ignorePatterns: ['projects/**/*', 'dist/**/*', 'node_modules/**/*'],
   overrides: [
     {
       files: ['*.ts'],
