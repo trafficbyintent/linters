@@ -68,7 +68,7 @@
     "lint:html": "htmlhint '**/*.html' --config src/html/.htmlhintrc --ignore 'node_modules/**' --ignore 'coverage/**' || echo 'No HTML files to lint'",
     "lint:js": "eslint 'src/**/*.js' --config src/javascript/eslint.config.js --ignore-pattern 'src/__tests__/**'",
     "lint:json": "eslint '**/*.json' --config src/json/eslint.config.js",
-    "lint:md": "markdownlint '**/*.md' --config src/markdown/.markdownlint.yaml --ignore node_modules",
+    "lint:md": "markdownlint '**/*.md' --config src/markdown/.markdownlint.yaml",
     "lint:prettier": "prettier --check '**/*.{js,ts,tsx,json,md,yml,yaml}'",
     "lint:react": "eslint '**/*.{jsx,tsx}' --config src/react/eslint.config.js",
     "lint:ts": "eslint 'src/**/*.ts' --config src/typescript/eslint.config.js --parser @typescript-eslint/parser --ignore-pattern 'src/__tests__/**' 2>/dev/null || echo 'No TypeScript files to lint'",
