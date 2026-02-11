@@ -1,5 +1,5 @@
 module.exports = {
-  /* Line length */
+  /* Line length - 100 characters (project-wide standard) */
   printWidth: 100,
 
   /* Indentation */
@@ -37,4 +37,15 @@ module.exports = {
 
   /* JSX specific (if using React) */
   jsxSingleQuote: false,
+
+  /* Overrides for specific file types */
+  overrides: [
+    {
+      files: '*.md',
+      options: {
+        /* 4-space indent for nested lists (matches markdownlint MD007) */
+        tabWidth: 4,
+      },
+    },
+  ],
 };

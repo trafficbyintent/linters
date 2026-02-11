@@ -10,7 +10,7 @@
     "txi",
     "trafficbyintent"
   ],
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "MIT",
   "author": "Traffic by Intent",
   "contributors": [
     "Bradford Melluish"
@@ -72,7 +72,6 @@
     "lint:prettier": "prettier --check '**/*.{js,ts,tsx,json,md,yml,yaml}'",
     "lint:react": "eslint '**/*.{jsx,tsx}' --config src/react/eslint.config.js",
     "lint:ts": "eslint 'src/**/*.ts' --config src/typescript/eslint.config.js --parser @typescript-eslint/parser --ignore-pattern 'src/__tests__/**' 2>/dev/null || echo 'No TypeScript files to lint'",
-    "postversion": "git push && git push --tags",
     "prepublishOnly": "npm test",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
@@ -80,9 +79,7 @@
     "test:lint": "npm run lint",
     "test:unit": "vitest run __tests__/unit",
     "test:watch": "vitest",
-    "typecheck": "tsc --noEmit",
-    "version": "npm test && git add -A",
-    "version:local": "npm test && git add -A && echo 'Version updated locally. Run \"git push && git push --tags\" when ready.'"
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@angular-eslint/eslint-plugin": "^20.1.1",
@@ -127,58 +124,12 @@
       "optional": true
     }
   },
-  "txi-protocols": {
-    "pr-description-file": ".PULL_REQUEST_DESCRIPTION.md",
-    "pr-description-in-gitignore": true,
-    "version-update-method": "manual-edit-only",
-    "forbidden-npm-commands": [
-      "version",
-      "publish"
-    ],
-    "forbidden-git-commands": [
-      "commit",
-      "push",
-      "tag",
-      "merge"
-    ],
-    "test-coverage-required": 100,
-    "test-dynamic-data-allowed": false,
-    "commit-permission": "explicit-only",
-    "documentation-files": {
-      "allowed": [
-        "README.md",
-        "CHANGELOG.md",
-        "CLAUDE.md",
-        "TODOS.md",
-        "TODOS_USER.md"
-      ],
-      "forbidden": [
-        "MIGRATION.md",
-        "UPGRADE.md",
-        "ANALYSIS.md",
-        "DEPENDENCY_MIGRATION.md",
-        "BREAKING_CHANGES.md",
-        "PR_DESCRIPTION.md"
-      ]
-    },
-    "comment-style": {
-      "documentation": "/* multi-line */",
-      "todos": "// single-line"
-    },
-    "protocols-documentation": "docs/agent/AGENT_PROTOCOLS.md",
-    "bootstrap-required": true,
-    "bootstrap-files": [
-      "docs/agent/AGENT_PREFLIGHT.md",
-      "docs/agent/AGENT_QUICKREF.md",
-      "docs/agent/AGENT_DIRECTIVES.md"
-    ]
-  },
   "engines": {
     "node": ">=20.9.0",
     "npm": ">=10.0.0"
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.org",
-    "access": "restricted"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }

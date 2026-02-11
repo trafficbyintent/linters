@@ -12,26 +12,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - **Bootstrap Regression**: Fixed agents skipping preflight while following Response Directive:
-  - Created "MANDATORY BOOTSTRAP SEQUENCE" with two numbered requirements
-  - Preflight now REQUIREMENT 1 (must be first) with explicit output verification
-  - Response Directive now REQUIREMENT 2 (after preflight)
-  - Added preflight verification to all checkpoints
-  - Clear sequence: Preflight → Output confirmation → Response Directive
+    - Created "MANDATORY BOOTSTRAP SEQUENCE" with two numbered requirements
+    - Preflight now REQUIREMENT 1 (must be first) with explicit output verification
+    - Response Directive now REQUIREMENT 2 (after preflight)
+    - Added preflight verification to all checkpoints
+    - Clear sequence: Preflight → Output confirmation → Response Directive
 
 - **Task-Focused Override**: Prevented agents from bypassing bootstrap when eager to help:
-  - Added cognitive interrupt at document start: "STOP - DO NOT READ THE USER'S QUESTION YET"
-  - Explicitly addresses the "eager to help" failure mode
-  - Lists forbidden actions (checking git, reading files, etc.) until bootstrap complete
-  - Added warnings about common bypass attempts like "just quickly check upstream"
+    - Added cognitive interrupt at document start: "STOP - DO NOT READ THE USER'S QUESTION YET"
+    - Explicitly addresses the "eager to help" failure mode
+    - Lists forbidden actions (checking git, reading files, etc.) until bootstrap complete
+    - Added warnings about common bypass attempts like "just quickly check upstream"
 
 ### Changed
 
 - **Response Directive Enforcement**: Restructured agent docs to prevent Response Directive bypass:
-  - Replaced theatrical "SYSTEM ERROR" language with clear, direct requirements
-  - Added mandatory Write Operation Gates with specific output format
-  - Introduced session persistence checks every 3 responses
-  - Strategic use of theatrical language only for git security (where it works)
-  - Multiple checkpoints throughout documentation without causing alert fatigue
+    - Replaced theatrical "SYSTEM ERROR" language with clear, direct requirements
+    - Added mandatory Write Operation Gates with specific output format
+    - Introduced session persistence checks every 3 responses
+    - Strategic use of theatrical language only for git security (where it works)
+    - Multiple checkpoints throughout documentation without causing alert fatigue
 
 ## [1.1.10] - 2025-08-10
 
@@ -77,10 +77,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed (v1.1.10)
 
 - Reorganized agent documentation into dedicated `/docs/standards/agent/` folder for better navigation:
-  - Renamed "Planning and Self-Review Protocol" to "Agent Development Protocol"
-  - Transformed CODING_AGENT_QUICK_REFERENCE.md into agent/README.md as single entry point
-  - Split CODING_AGENT_STANDARDS.md into focused files: STANDARDS.md, PROTOCOLS.md, and TOOLS.md
-  - Updated all references throughout codebase to point to new agent/README.md location
+    - Renamed "Planning and Self-Review Protocol" to "Agent Development Protocol"
+    - Transformed CODING_AGENT_QUICK_REFERENCE.md into agent/README.md as single entry point
+    - Split CODING_AGENT_STANDARDS.md into focused files: STANDARDS.md, PROTOCOLS.md, and TOOLS.md
+    - Updated all references throughout codebase to point to new agent/README.md location
 
 - Moved JavaScript test examples from executable file to `docs/examples/JAVASCRIPT_TEST_EXAMPLES.md`
 - Updated Development Guide to prohibit executable example files for security
@@ -91,9 +91,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed (v1.1.10)
 
 - Enabled custom TXI ESLint rules that were previously commented out:
-  - `txi/prefer-multiline-comments` - Enforces multi-line comments for documentation
-  - `txi/no-dynamic-test-data` - Prevents Date.now() and Math.random() in tests
-  - `txi/prefer-async-await` - Encourages async/await over promise chains
+    - `txi/prefer-multiline-comments` - Enforces multi-line comments for documentation
+    - `txi/no-dynamic-test-data` - Prevents Date.now() and Math.random() in tests
+    - `txi/prefer-async-await` - Encourages async/await over promise chains
 - Fixed TypeScript ESLint configuration to properly load custom rules
 - Added proper plugin exports in package.json for custom ESLint rules
 - Fixed all 394 single-line comment violations across the codebase by converting them to multi-line format
@@ -110,16 +110,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Enhanced Git workflow documentation with clear fork-based workflow
 - Added missing npm scripts for better developer experience:
-  - `format` - Format all code using Prettier
-  - `format:check` - Check code formatting without changes
-  - `lint:fix` - Auto-fix linting issues for JS, TS, and JSON
-  - `typecheck` - Run TypeScript type checking
+    - `format` - Format all code using Prettier
+    - `format:check` - Check code formatting without changes
+    - `lint:fix` - Auto-fix linting issues for JS, TS, and JSON
+    - `typecheck` - Run TypeScript type checking
 - Updated `lint:ts` script to check all TypeScript files, not just integration tests
 - Added changelog management requirements for agents
 - Enhanced AI agent standards awareness:
-  - Added comprehensive CLAUDE.md template in agent standards documentation
-  - Updated README.md with mandatory reading checklist for AI agents
-  - Created pull request template with standards compliance checklist
+    - Added comprehensive CLAUDE.md template in agent standards documentation
+    - Updated README.md with mandatory reading checklist for AI agents
+    - Created pull request template with standards compliance checklist
 - Updated dependencies to latest compatible versions within major versions
 - Fixed CSS and HTML linter scripts to handle missing files gracefully
 - Improved documentation tone guidelines for different audiences
@@ -130,14 +130,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Cloud provider organization guidance for Terraform modules with two architectural options
 - Added lint scripts for all supported linters (JSON, Markdown, CSS, HTML, React, Angular)
 - Bundled all linter dependencies as regular dependencies for easier installation:
-  - ESLint, Prettier, TypeScript, and all plugins moved to dependencies
-  - Stylelint and plugins (stylelint-config-standard, stylelint-order, stylelint-selector-bem-pattern)
-  - markdownlint-cli for Markdown linting
-  - htmlhint for HTML linting
-  - jsonc-eslint-parser and eslint-plugin-jsonc for JSON linting
-  - eslint-plugin-react and eslint-plugin-react-hooks for React linting
-  - @angular-eslint plugins for Angular linting
-- Removed peerDependencies to simplify installation - consumers now only need to install @trafficbyintent/style-guide
+    - ESLint, Prettier, TypeScript, and all plugins moved to dependencies
+    - Stylelint and plugins (stylelint-config-standard, stylelint-order, stylelint-selector-bem-pattern)
+    - markdownlint-cli for Markdown linting
+    - htmlhint for HTML linting
+    - jsonc-eslint-parser and eslint-plugin-jsonc for JSON linting
+    - eslint-plugin-react and eslint-plugin-react-hooks for React linting
+    - @angular-eslint plugins for Angular linting
+- Removed peerDependencies to simplify installation - consumers now only need to install @trafficbyintent/linters
 
 ### Known Issues
 
@@ -147,7 +147,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added (v1.0.0)
 
-- Initial release of @trafficbyintent/style-guide
+- Initial release of @trafficbyintent/linters
 - ESLint configurations for JavaScript, TypeScript, React, Angular, and JSON
 - Prettier configurations for JavaScript and TypeScript
 - Stylelint configuration for CSS/SCSS
@@ -155,18 +155,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - TFLint configuration for Terraform
 - Markdownlint configuration for Markdown
 - Custom ESLint rules:
-  - `@trafficbyintent/no-debug-artifacts` - Prevents console.log and debugger statements
-  - `@trafficbyintent/no-dynamic-test-data` - Enforces static test data
-  - `@trafficbyintent/require-descriptive-test-names` - Ensures descriptive test names
-  - `@trafficbyintent/require-error-context` - Requires context in error messages
+    - `@trafficbyintent/no-debug-artifacts` - Prevents console.log and debugger statements
+    - `@trafficbyintent/no-dynamic-test-data` - Enforces static test data
+    - `@trafficbyintent/require-descriptive-test-names` - Ensures descriptive test names
+    - `@trafficbyintent/require-error-context` - Requires context in error messages
 - TypeScript base configuration with ES2022 support
 - JSON schemas for common configuration files
 - Comprehensive documentation:
-  - Style guides for all supported languages
-  - Development guide with best practices
-  - API standards guide
-  - Terraform standards guide
-  - npm release guide
+    - Style guides for all supported languages
+    - Development guide with best practices
+    - API standards guide
+    - Terraform standards guide
+    - npm release guide
 - Full test suite with unit and integration tests
 - Support for ES2023+ JavaScript features
 - GitHub Package Registry configuration

@@ -16,7 +16,7 @@ module.exports = {
    * @param {boolean} [options.allowConsoleLog=false] - Allow console.log statements
    * @returns {Object} Extended ESLint configuration for Angular projects
    * @example
-   * const config = require('@trafficbyintent/style-guide/angular').getESLintConfig({
+   * const config = require('@trafficbyintent/linters/angular').getESLintConfig({
    *   allowConsoleWarn: true,
    *   allowConsoleError: true
    * });

@@ -16,7 +16,7 @@ module.exports = {
    * @param {boolean} [options.allowConsoleInfo=false] - Allow console.info statements
    * @returns {Object} Extended ESLint configuration for React projects
    * @example
-   * const config = require('@trafficbyintent/style-guide/react').getESLintConfig({
+   * const config = require('@trafficbyintent/linters/react').getESLintConfig({
    *   allowConsoleWarn: true,
    *   allowConsoleError: true
    * });

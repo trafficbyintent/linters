@@ -44,9 +44,7 @@ module.exports = {
               const message = messageArg.value.toLowerCase();
 
               /* Check for generic messages first */
-              const isGeneric = genericMessages.some(
-                (generic) => message === generic || message.endsWith(generic)
-              );
+              const isGeneric = genericMessages.some((generic) => message === generic);
 
               if (isGeneric) {
                 context.report({

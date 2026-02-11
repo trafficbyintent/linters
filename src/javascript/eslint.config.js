@@ -253,7 +253,8 @@ module.exports = {
     ],
 
     /* Import rules */
-    'import/no-default-export': 'warn' /* TXI prefers named exports */,
+    /* Named exports preferred; matches TypeScript config severity */
+    'import/no-default-export': 'error',
     'import/prefer-default-export': 'off',
     'import/order': [
       'error',

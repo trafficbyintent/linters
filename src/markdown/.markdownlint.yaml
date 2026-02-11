@@ -26,9 +26,9 @@ MD003:
 MD004:
   style: 'dash'
 
-# List indentation - 2 spaces
+# List indentation - 4 spaces (per TXI Markdown Style Guide)
 MD007:
-  indent: 2
+  indent: 4
   start_indented: false
 
 # Trailing spaces
@@ -87,9 +87,9 @@ MD027: true
 # Blank line inside blockquote
 MD028: false
 
-# Ordered list item prefix
+# Ordered list item prefix - lazy numbering (use 1. for all items)
 MD029:
-  style: 'ordered'
+  style: 'one'
 
 # Spaces after list markers
 MD030:

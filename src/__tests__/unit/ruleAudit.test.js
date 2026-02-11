@@ -58,7 +58,6 @@ describe('ESLint Rule Audit', () => {
     '@typescript-eslint/no-non-null-assertion',
     '@typescript-eslint/prefer-nullish-coalescing',
     '@typescript-eslint/prefer-optional-chain',
-    'no-null/no-null',
 
     /* Equality */
     'eqeqeq',

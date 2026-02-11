@@ -1,27 +1,27 @@
-# TXI Style Guide Linter Setup
+# TXI Linter Setup
 
-This guide explains how to use the linters provided by the TXI Style Guide package.
+This guide explains how to use the linters provided by the `@trafficbyintent/linters` package.
 
 ## Available Linters
 
-| Language/Framework | Linter Tool  | Configuration File                                   |
-| ------------------ | ------------ | ---------------------------------------------------- |
-| JavaScript         | ESLint       | `@trafficbyintent/style-guide/javascript/eslint`     |
-| TypeScript         | ESLint       | `@trafficbyintent/style-guide/typescript/eslint`     |
-| CSS/SCSS           | Stylelint    | `@trafficbyintent/style-guide/css/stylelint`         |
-| React              | ESLint       | `@trafficbyintent/style-guide/react/eslint`          |
-| Angular            | ESLint       | `@trafficbyintent/style-guide/angular/eslint`        |
-| Markdown           | markdownlint | `@trafficbyintent/style-guide/markdown/markdownlint` |
-| JSON               | ESLint       | `@trafficbyintent/style-guide/json/eslint`           |
-| HTML               | HTMLHint     | `@trafficbyintent/style-guide/html/htmlhint`         |
-| Terraform          | TFLint       | `@trafficbyintent/style-guide/terraform/tflint`      |
+| Language/Framework | Linter Tool  | Configuration File                               |
+| ------------------ | ------------ | ------------------------------------------------ |
+| JavaScript         | ESLint       | `@trafficbyintent/linters/javascript/eslint`     |
+| TypeScript         | ESLint       | `@trafficbyintent/linters/typescript/eslint`     |
+| CSS/SCSS           | Stylelint    | `@trafficbyintent/linters/css/stylelint`         |
+| React              | ESLint       | `@trafficbyintent/linters/react/eslint`          |
+| Angular            | ESLint       | `@trafficbyintent/linters/angular/eslint`        |
+| Markdown           | markdownlint | `@trafficbyintent/linters/markdown/markdownlint` |
+| JSON               | ESLint       | `@trafficbyintent/linters/json/eslint`           |
+| HTML               | HTMLHint     | `@trafficbyintent/linters/html/htmlhint`         |
+| Terraform          | TFLint       | `@trafficbyintent/linters/terraform/tflint`      |
 
 ## Installation
 
-First, install the TXI Style Guide package:
+First, install the TXI linters package:
 
 ```bash
-npm install --save-dev @trafficbyintent/style-guide
+npm install --save-dev @trafficbyintent/linters
 ```
 
 Then install the required peer dependencies for the linters you need:
@@ -84,7 +84,7 @@ curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/instal
 Create `.eslintrc.js`:
 
 ```javascript
-module.exports = require('@trafficbyintent/style-guide/javascript/eslint');
+module.exports = require('@trafficbyintent/linters/javascript/eslint');
 ```
 
 ### TypeScript
@@ -92,7 +92,7 @@ module.exports = require('@trafficbyintent/style-guide/javascript/eslint');
 Create `.eslintrc.js`:
 
 ```javascript
-module.exports = require('@trafficbyintent/style-guide/typescript/eslint');
+module.exports = require('@trafficbyintent/linters/typescript/eslint');
 ```
 
 ### CSS
@@ -100,7 +100,7 @@ module.exports = require('@trafficbyintent/style-guide/typescript/eslint');
 Create `.stylelintrc.js`:
 
 ```javascript
-module.exports = require('@trafficbyintent/style-guide/css/stylelint');
+module.exports = require('@trafficbyintent/linters/css/stylelint');
 ```
 
 ### React
@@ -108,7 +108,7 @@ module.exports = require('@trafficbyintent/style-guide/css/stylelint');
 Create `.eslintrc.js`:
 
 ```javascript
-module.exports = require('@trafficbyintent/style-guide/react/eslint');
+module.exports = require('@trafficbyintent/linters/react/eslint');
 ```
 
 ### Angular
@@ -116,7 +116,7 @@ module.exports = require('@trafficbyintent/style-guide/react/eslint');
 Create `.eslintrc.js`:
 
 ```javascript
-module.exports = require('@trafficbyintent/style-guide/angular/eslint');
+module.exports = require('@trafficbyintent/linters/angular/eslint');
 ```
 
 ### Markdown
@@ -125,14 +125,14 @@ Create `.markdownlint.json`:
 
 ```json
 {
-  "extends": "@trafficbyintent/style-guide/markdown/markdownlint"
+    "extends": "@trafficbyintent/linters/markdown/markdownlint"
 }
 ```
 
 Or copy the configuration:
 
 ```bash
-cp node_modules/@trafficbyintent/style-guide/src/markdown/.markdownlint.json .markdownlint.json
+cp node_modules/@trafficbyintent/linters/src/markdown/.markdownlint.json .markdownlint.json
 ```
 
 ### JSON Configuration
@@ -141,8 +141,8 @@ Add to your `.eslintrc.js`:
 
 ```javascript
 module.exports = {
-  extends: ['@trafficbyintent/style-guide/javascript/eslint'],
-  overrides: [...require('@trafficbyintent/style-guide/json/eslint').overrides],
+    extends: ['@trafficbyintent/linters/javascript/eslint'],
+    overrides: [...require('@trafficbyintent/linters/json/eslint').overrides],
 };
 ```
 
@@ -151,7 +151,7 @@ module.exports = {
 Create `.htmlhintrc`:
 
 ```bash
-cp node_modules/@trafficbyintent/style-guide/src/html/.htmlhintrc .htmlhintrc
+cp node_modules/@trafficbyintent/linters/src/html/.htmlhintrc .htmlhintrc
 ```
 
 ### Terraform Configuration
@@ -159,7 +159,7 @@ cp node_modules/@trafficbyintent/style-guide/src/html/.htmlhintrc .htmlhintrc
 Create `.tflint.hcl`:
 
 ```bash
-cp node_modules/@trafficbyintent/style-guide/src/terraform/.tflint.hcl .tflint.hcl
+cp node_modules/@trafficbyintent/linters/src/terraform/.tflint.hcl .tflint.hcl
 ```
 
 ## NPM Scripts
@@ -168,17 +168,17 @@ Add these scripts to your `package.json`:
 
 ```json
 {
-  "scripts": {
-    "lint": "npm run lint:js && npm run lint:css && npm run lint:md && npm run lint:json && npm run lint:html",
-    "lint:js": "eslint '**/*.{js,jsx,ts,tsx}'",
-    "lint:css": "stylelint '**/*.{css,scss}'",
-    "lint:md": "markdownlint '**/*.md'",
-    "lint:json": "eslint '**/*.json'",
-    "lint:html": "htmlhint '**/*.html'",
-    "lint:tf": "tflint",
-    "lint:fix": "npm run lint:js -- --fix && npm run lint:css -- --fix && npm run lint:json -- --fix",
-    "format": "prettier --write '**/*.{js,jsx,ts,tsx,css,scss,json,md,html}'"
-  }
+    "scripts": {
+        "lint": "npm run lint:js && npm run lint:css && npm run lint:md && npm run lint:json && npm run lint:html",
+        "lint:js": "eslint '**/*.{js,jsx,ts,tsx}'",
+        "lint:css": "stylelint '**/*.{css,scss}'",
+        "lint:md": "markdownlint '**/*.md'",
+        "lint:json": "eslint '**/*.json'",
+        "lint:html": "htmlhint '**/*.html'",
+        "lint:tf": "tflint",
+        "lint:fix": "npm run lint:js -- --fix && npm run lint:css -- --fix && npm run lint:json -- --fix",
+        "format": "prettier --write '**/*.{js,jsx,ts,tsx,css,scss,json,md,html}'"
+    }
 }
 ```
 
@@ -198,34 +198,34 @@ Add to `.vscode/settings.json`:
 
 ```json
 {
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true,
-    "source.fixAll.markdownlint": true
-  },
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "json",
-    "jsonc"
-  ],
-  "css.validate": false,
-  "scss.validate": false,
-  "stylelint.validate": ["css", "scss"],
-  "[terraform]": {
-    "editor.formatOnSave": true
-  }
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true,
+        "source.fixAll.stylelint": true,
+        "source.fixAll.markdownlint": true
+    },
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "json",
+        "jsonc"
+    ],
+    "css.validate": false,
+    "scss.validate": false,
+    "stylelint.validate": ["css", "scss"],
+    "[terraform]": {
+        "editor.formatOnSave": true
+    }
 }
 ```
 
 ### WebStorm/IntelliJ
 
 1. Go to Settings → Languages & Frameworks → JavaScript → Code Quality Tools → ESLint
-2. Enable "Automatic ESLint configuration"
-3. Go to Settings → Languages & Frameworks → Style Sheets → Stylelint
-4. Enable and point to stylelint config
+1. Enable "Automatic ESLint configuration"
+1. Go to Settings → Languages & Frameworks → Style Sheets → Stylelint
+1. Enable and point to stylelint config
 
 ## Pre-commit Hooks
 
@@ -240,14 +240,14 @@ Add to `package.json`:
 
 ```json
 {
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": "eslint --fix",
-    "*.{css,scss}": "stylelint --fix",
-    "*.md": "markdownlint --fix",
-    "*.json": "eslint --fix",
-    "*.html": "htmlhint",
-    "*.tf": "terraform fmt"
-  }
+    "lint-staged": {
+        "*.{js,jsx,ts,tsx}": "eslint --fix",
+        "*.{css,scss}": "stylelint --fix",
+        "*.md": "markdownlint --fix",
+        "*.json": "eslint --fix",
+        "*.html": "htmlhint",
+        "*.tf": "terraform fmt"
+    }
 }
 ```
 
@@ -270,39 +270,39 @@ name: Lint
 on: [push, pull_request]
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
+    lint:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-          cache: 'npm'
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: '18'
+                  cache: 'npm'
 
-      - name: Install dependencies
-        run: npm ci
+            - name: Install dependencies
+              run: npm ci
 
-      - name: Run linters
-        run: |
-          npm run lint:js
-          npm run lint:css
-          npm run lint:md
-          npm run lint:json
-          npm run lint:html
+            - name: Run linters
+              run: |
+                  npm run lint:js
+                  npm run lint:css
+                  npm run lint:md
+                  npm run lint:json
+                  npm run lint:html
 
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v2
+            - name: Setup Terraform
+              uses: hashicorp/setup-terraform@v2
 
-      - name: Terraform Format Check
-        run: terraform fmt -check -recursive
+            - name: Terraform Format Check
+              run: terraform fmt -check -recursive
 
-      - name: Setup TFLint
-        uses: terraform-linters/setup-tflint@v3
+            - name: Setup TFLint
+              uses: terraform-linters/setup-tflint@v3
 
-      - name: Run TFLint
-        run: tflint --recursive
+            - name: Run TFLint
+              run: tflint --recursive
 ```
 
 ## Customization
@@ -313,11 +313,11 @@ You can extend any configuration:
 
 ```javascript
 module.exports = {
-  extends: ['@trafficbyintent/style-guide/javascript/eslint'],
-  rules: {
-    // Your custom rules
-    'no-console': 'off',
-  },
+    extends: ['@trafficbyintent/linters/javascript/eslint'],
+    rules: {
+        // Your custom rules
+        'no-console': 'off',
+    },
 };
 ```
 
@@ -325,11 +325,11 @@ module.exports = {
 
 ```javascript
 module.exports = {
-  extends: ['@trafficbyintent/style-guide/css/stylelint'],
-  rules: {
-    // Your custom rules
-    'selector-class-pattern': null,
-  },
+    extends: ['@trafficbyintent/linters/css/stylelint'],
+    rules: {
+        // Your custom rules
+        'selector-class-pattern': null,
+    },
 };
 ```
 
@@ -357,5 +357,5 @@ Run `tflint --init` in your Terraform directory to download provider plugins.
 For issues or questions about the linters:
 
 1. Check the style guide documentation in the `docs/standards/` folder
-2. Open an issue in the repository
-3. Contact the TXI development team
+1. Open an issue in the repository
+1. Contact the TXI development team

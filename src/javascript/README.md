@@ -16,9 +16,9 @@ style guide rules.
 
 - **Multi-line comments (`/* */`)** required for all permanent documentation
 - **Single-line comments (`//`)** only allowed for:
-  - TODO/FIXME comments
-  - Temporarily commenting out code
-  - ESLint directives
+    - TODO/FIXME comments
+    - Temporarily commenting out code
+    - ESLint directives
 
 ### Import Organization
 
@@ -44,7 +44,7 @@ style guide rules.
 
 ```javascript
 module.exports = {
-  extends: ['@trafficbyintent/style-guide/javascript/eslint'],
+    extends: ['@trafficbyintent/linters/javascript/eslint'],
 };
 ```
 
@@ -53,10 +53,10 @@ module.exports = {
 ```javascript
 /* .eslintrc.cjs */
 module.exports = {
-  extends: ['@trafficbyintent/style-guide/javascript/eslint'],
-  parserOptions: {
-    sourceType: 'module',
-  },
+    extends: ['@trafficbyintent/linters/javascript/eslint'],
+    parserOptions: {
+        sourceType: 'module',
+    },
 };
 ```
 
@@ -64,10 +64,10 @@ module.exports = {
 
 ```javascript
 module.exports = {
-  extends: ['@trafficbyintent/style-guide/javascript/eslint'],
-  rules: {
-    /* Additional overrides */
-  },
+    extends: ['@trafficbyintent/linters/javascript/eslint'],
+    rules: {
+        /* Additional overrides */
+    },
 };
 ```
 
@@ -116,8 +116,8 @@ Prevents dynamic data in test files.
 
 ```javascript
 const testUser = {
-  id: Math.random(),
-  createdAt: new Date(),
+    id: Math.random(),
+    createdAt: new Date(),
 };
 ```
 
@@ -125,8 +125,8 @@ const testUser = {
 
 ```javascript
 const testUser = {
-  id: 'test-123',
-  createdAt: new Date('2024-01-15T10:00:00Z'),
+    id: 'test-123',
+    createdAt: new Date('2024-01-15T10:00:00Z'),
 };
 ```
 
@@ -138,20 +138,20 @@ Encourages async/await over promise chains.
 
 ```javascript
 getData()
-  .then((data) => processData(data))
-  .then((result) => saveResult(result))
-  .catch(handleError);
+    .then((data) => processData(data))
+    .then((result) => saveResult(result))
+    .catch(handleError);
 ```
 
 ✅ **Good:**
 
 ```javascript
 try {
-  const data = await getData();
-  const result = await processData(data);
-  await saveResult(result);
+    const data = await getData();
+    const result = await processData(data);
+    await saveResult(result);
 } catch (error) {
-  handleError(error);
+    handleError(error);
 }
 ```
 

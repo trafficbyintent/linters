@@ -20,7 +20,7 @@ module.exports = {
    * @param {boolean} [options.sortKeys=false] - Enforce sorted keys
    * @returns {Object} Extended ESLint configuration for JSON files
    * @example
-   * const config = require('@trafficbyintent/style-guide/json').getESLintConfig({
+   * const config = require('@trafficbyintent/linters/json').getESLintConfig({
    *   indentSize: 4,
    *   trailingCommas: true
    * });

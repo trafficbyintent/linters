@@ -138,13 +138,13 @@ describe('Module Exports', () => {
     test('can import specific configs directly', () => {
       /* These should all work when the package is installed */
       const _imports = [
-        () => require('@trafficbyintent/style-guide'),
-        () => require('@trafficbyintent/style-guide/typescript'),
-        () => require('@trafficbyintent/style-guide/typescript/eslint'),
-        () => require('@trafficbyintent/style-guide/typescript/prettier'),
-        () => require('@trafficbyintent/style-guide/javascript'),
-        () => require('@trafficbyintent/style-guide/javascript/eslint'),
-        () => require('@trafficbyintent/style-guide/javascript/prettier'),
+        () => require('@trafficbyintent/linters'),
+        () => require('@trafficbyintent/linters/typescript'),
+        () => require('@trafficbyintent/linters/typescript/eslint'),
+        () => require('@trafficbyintent/linters/typescript/prettier'),
+        () => require('@trafficbyintent/linters/javascript'),
+        () => require('@trafficbyintent/linters/javascript/eslint'),
+        () => require('@trafficbyintent/linters/javascript/prettier'),
       ];
 
       /* Since we're testing locally, we'll just verify the paths resolve */

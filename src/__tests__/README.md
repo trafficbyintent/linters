@@ -1,6 +1,6 @@
 # TXI Style Guide Test Suite
 
-This directory contains all tests for the @trafficbyintent/style-guide package,
+This directory contains all tests for the @trafficbyintent/linters package,
 organized following JavaScript/TypeScript best practices.
 
 ## Test Structure
@@ -22,19 +22,19 @@ __tests__/
 ## Why This Structure?
 
 1. **Single Test Directory**: All tests live under `__tests__/` at the project root
-   - Standard convention recognized by most test runners
-   - Clear separation from source code
-   - Easy to find and maintain
+    - Standard convention recognized by most test runners
+    - Clear separation from source code
+    - Easy to find and maintain
 
-2. **No Separate package.json**: Test dependencies are in the root `package.json` as `devDependencies`
-   - Simpler dependency management
-   - Single node_modules folder
-   - Faster installs and less disk space
+1. **No Separate package.json**: Test dependencies are in the root `package.json` as `devDependencies`
+    - Simpler dependency management
+    - Single node_modules folder
+    - Faster installs and less disk space
 
-3. **Clear Organization**: Unit vs integration tests are clearly separated
-   - Unit tests run fast and test individual pieces
-   - Integration tests verify everything works together
-   - Fixtures are shared between both test types
+1. **Clear Organization**: Unit vs integration tests are clearly separated
+    - Unit tests run fast and test individual pieces
+    - Integration tests verify everything works together
+    - Fixtures are shared between both test types
 
 ## Test Categories
 
@@ -43,38 +43,38 @@ __tests__/
 Fast, isolated tests for individual components:
 
 - **configs/** - Tests for each linter configuration
-  - `javascriptEslint.test.js` - JavaScript ESLint config
-  - `typescriptEslint.test.js` - TypeScript ESLint config
-  - `prettier.test.js` - Prettier configurations
-  - `stylelint.test.js` - CSS/SCSS linting
-  - etc.
+    - `javascriptEslint.test.js` - JavaScript ESLint config
+    - `typescriptEslint.test.js` - TypeScript ESLint config
+    - `prettier.test.js` - Prettier configurations
+    - `stylelint.test.js` - CSS/SCSS linting
+    - etc.
 
 - **rules/** - Tests for custom ESLint rules
-  - `noDebugArtifacts.test.js`
-  - `noDynamicTestData.test.js`
-  - `requireDescriptiveTestNames.test.js`
-  - `requireErrorContext.test.js`
-  - `preferMultilineComments.test.js`
-  - `preferAsyncAwait.test.js`
+    - `noDebugArtifacts.test.js`
+    - `noDynamicTestData.test.js`
+    - `requireDescriptiveTestNames.test.js`
+    - `requireErrorContext.test.js`
+    - `preferMultilineComments.test.js`
+    - `preferAsyncAwait.test.js`
 
 - **exports/** - Verify all package exports work
-  - `mainExports.test.js`
-  - `subpathExports.test.js`
+    - `mainExports.test.js`
+    - `subpathExports.test.js`
 
 ### Integration Tests (`integration/`)
 
 Tests that verify the package works in real-world scenarios:
 
 - **real-project/** - Simulates a real project using the style guide
-  - Creates temporary project structure
-  - Installs the package
-  - Runs linters with our configs
-  - Verifies expected behavior
+    - Creates temporary project structure
+    - Installs the package
+    - Runs linters with our configs
+    - Verifies expected behavior
 
 - **compatibility/** - Cross-tool compatibility
-  - ESLint + Prettier integration
-  - TypeScript + ESLint integration
-  - All tools working together
+    - ESLint + Prettier integration
+    - TypeScript + ESLint integration
+    - All tools working together
 
 ### Fixtures (`fixtures/`)
 
@@ -121,20 +121,20 @@ import { ESLint } from 'eslint';
 import newLinterConfig from '../../../newLinter/eslint.config.js';
 
 describe('New Linter Configuration', () => {
-  let eslint;
+    let eslint;
 
-  beforeEach(() => {
-    eslint = new ESLint({
-      overrideConfigFile: false,
-      baseConfig: newLinterConfig,
+    beforeEach(() => {
+        eslint = new ESLint({
+            overrideConfigFile: false,
+            baseConfig: newLinterConfig,
+        });
     });
-  });
 
-  it('should catch specific violations', async () => {
-    const results = await eslint.lintText('bad code here');
-    expect(results[0].messages).toHaveLength(1);
-    expect(results[0].messages[0].ruleId).toBe('expected-rule');
-  });
+    it('should catch specific violations', async () => {
+        const results = await eslint.lintText('bad code here');
+        expect(results[0].messages).toHaveLength(1);
+        expect(results[0].messages[0].ruleId).toBe('expected-rule');
+    });
 });
 ```
 
@@ -146,30 +146,30 @@ import { describe, it, expect } from 'vitest';
 import { createTestProject, runLinter } from '../helpers';
 
 describe('New Feature Integration', () => {
-  it('should work in a real project', async () => {
-    const projectDir = await createTestProject({
-      dependencies: ['@trafficbyintent/style-guide'],
-      files: {
-        '.eslintrc.js':
-          'module.exports = require("@trafficbyintent/style-guide/javascript/eslint");',
-        'src/index.js': 'console.log("test");',
-      },
-    });
+    it('should work in a real project', async () => {
+        const projectDir = await createTestProject({
+            dependencies: ['@trafficbyintent/linters'],
+            files: {
+                '.eslintrc.js':
+                    'module.exports = require("@trafficbyintent/linters/javascript/eslint");',
+                'src/index.js': 'console.log("test");',
+            },
+        });
 
-    const results = await runLinter(projectDir);
-    expect(results.errorCount).toBe(0);
-  });
+        const results = await runLinter(projectDir);
+        expect(results.errorCount).toBe(0);
+    });
 });
 ```
 
 ## Test Guidelines
 
 1. **Keep Tests Fast**: Unit tests should run in milliseconds
-2. **Test One Thing**: Each test should verify a single behavior
-3. **Use Descriptive Names**: Test names should explain what they're testing
-4. **Avoid Duplication**: Use shared fixtures and helpers
-5. **Clean Up**: Integration tests must clean up temporary files
-6. **Mock Sparingly**: Prefer real implementations when possible
+1. **Test One Thing**: Each test should verify a single behavior
+1. **Use Descriptive Names**: Test names should explain what they're testing
+1. **Avoid Duplication**: Use shared fixtures and helpers
+1. **Clean Up**: Integration tests must clean up temporary files
+1. **Mock Sparingly**: Prefer real implementations when possible
 
 ## Continuous Integration
 
@@ -208,7 +208,7 @@ See `.github/workflows/ci.yml` for CI configuration.
 When adding new features:
 
 1. Add unit tests in `__tests__/unit/`
-2. Add integration test in `__tests__/integration/`
-3. Update relevant fixtures
-4. Run full test suite before committing
-5. Update this README if test structure changes
+1. Add integration test in `__tests__/integration/`
+1. Update relevant fixtures
+1. Run full test suite before committing
+1. Update this README if test structure changes

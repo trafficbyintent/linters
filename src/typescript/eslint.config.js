@@ -18,13 +18,17 @@ const _customRules = require('./custom-rules');
  * If you're seeing this and wondering if it's broken - it's not. This is
  * a deliberate architectural decision to keep the style guide self-contained.
  */
+const resolveCache = new Map();
 require('module').Module._resolveFilename = ((originalResolveFilename) =>
   function (request, parent, isMain) {
     if (
       request === 'eslint-plugin-@trafficbyintent' ||
       request === '@trafficbyintent/eslint-plugin'
     ) {
-      return require.resolve('./custom-rules');
+      if (!resolveCache.has(request)) {
+        resolveCache.set(request, require.resolve('./custom-rules'));
+      }
+      return resolveCache.get(request);
     }
     return originalResolveFilename(request, parent, isMain);
   })(require('module').Module._resolveFilename);
@@ -191,7 +195,6 @@ module.exports = {
     '@typescript-eslint/no-non-null-assertion': 'error',
     '@typescript-eslint/prefer-nullish-coalescing': 'error',
     '@typescript-eslint/prefer-optional-chain': 'error',
-    'no-null/no-null': 'off' /* We allow null in specific cases */,
 
     /*
      * ========================================
@@ -206,6 +209,7 @@ module.exports = {
      * ========================================
      */
     curly: ['error', 'all'],
+    /* TypeScript enforces allowSingleLine: false (stricter than JS which allows it) */
     'brace-style': ['error', '1tbs', { allowSingleLine: false }],
 
     /*
